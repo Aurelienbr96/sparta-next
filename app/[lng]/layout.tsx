@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { inter } from "./ui/fonts";
+import { inter } from "../ui/fonts";
 import { dir } from "i18next";
 import { languages } from "../i18n/settings";
 import { ReactNode } from "react";
