@@ -40,12 +40,10 @@ export const mymiddleware = (req) => {
 
 const mymiddleware2 = (req) => {
   const url = req.url;
-  console.log("weqwe", url);
   return NextResponse.next();
 };
 
 export async function middleware(req) {
-  console.log("mid", auth);
   return mymiddleware(req);
 }
  */

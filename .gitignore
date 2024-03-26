@@ -30,8 +30,6 @@ yarn-error.log*
 
 .env
 
-/prisma/seed.ts
-
 # vercel
 .vercel
 
