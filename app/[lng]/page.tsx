@@ -1,13 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import { montserrat } from "../ui/fonts";
-import { Input } from "../ui/form";
-import { Button } from "../ui/buttons/Button";
 import SpartaLogo from "@/public/sparta-logo.png";
 
 import { useTranslation } from "../i18n";
 import { ComponentWithLng } from "../i18n/types";
-import { PrismaClient } from "@prisma/client";
 import LoginForm from "./ui/LoginForm";
 
 type Props = {} & ComponentWithLng;

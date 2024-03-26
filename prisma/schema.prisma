@@ -4,6 +4,8 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+// Define the enum with possible values
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -14,7 +16,27 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
+  id        Int        @id @default(autoincrement())
+  email     String     @unique
   password  String
+  exercises Exercise[] // Relation to exercises
+}
+
+model MuscleGroup {
+  id          Int        @id @default(autoincrement())
+  name        String     @unique
+  description String?
+  Exercise    Exercise[]
+}
+
+model Exercise {
+  id            Int         @id @default(autoincrement())
+  name          String
+  description   String
+  muscleGroupId Int
+  muscleGroup   MuscleGroup @relation(fields: [muscleGroupId], references: [id])
+  userId        Int? // Nullable relation to User
+  createdBy     User?       @relation(fields: [userId], references: [id])
+
+  @@index([userId]) // Optional: Improves query performance on the userId field
 }
