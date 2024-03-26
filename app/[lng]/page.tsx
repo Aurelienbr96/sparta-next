@@ -1,17 +1,17 @@
 import React from "react";
 import Image from "next/image";
-import { montserrat } from "./ui/fonts";
-import { Input } from "./ui/form";
-import { Button } from "./ui/buttons/Button";
+import { montserrat } from "../ui/fonts";
 import SpartaLogo from "@/public/sparta-logo.png";
 
 import { useTranslation } from "../i18n";
 import { ComponentWithLng } from "../i18n/types";
+import LoginForm from "./ui/LoginForm";
 
 type Props = {} & ComponentWithLng;
 
 async function Home({ params: { lng } }: Props) {
   const { t } = await useTranslation(lng);
+
   return (
     <main className="flex flex-col md:flex-row min-h-screen">
       <div className="flex p-7 flex-grow-1 flex-col items-center md:items-start">
@@ -23,13 +23,7 @@ async function Home({ params: { lng } }: Props) {
           {t("login-page.title")}
         </h1>
       </div>
-      <div className="flex flex-grow-2 lg:bg-white w-full flex-col lg:pt-52 items-center">
-        <h1 className="text-title-2xl font-bold">Login</h1>
-        <Input placeholder="email@gmail.com" className="mt-20 w-96" />
-        <Input type="password" placeholder="password" className="mt-4 w-96" />
-        <p className="mt-6">Forgot password ?</p>
-        <Button className="w-96 mt-5">Sign in with Email</Button>
-      </div>
+      <LoginForm />
     </main>
   );
 }

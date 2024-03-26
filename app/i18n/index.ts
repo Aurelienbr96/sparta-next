@@ -9,7 +9,6 @@ const initI18next = async (lng: string | undefined, ns: string | undefined) => {
     .use(initReactI18next)
     .use(
       resourcesToBackend((language: any, namespace: any) => {
-        console.log("namespace", namespace);
         return import(`./locales/${language}/${namespace}.json`);
       })
     )
